@@ -97,3 +97,17 @@ px.line(
 	y=daily_rate, title='Growth rate of confirmed cases in brazil'
 ).show()
 
+""" Predictions #PD """
+
+confirmed_cases = brazil.confirmed
+confirmed_cases.index = brazil.observationdate
+results = seasonal_decompose(confirmed_cases)
+
+fig_pd, (ax1, ax2, ax3, ax4) = plt.subplots(4, 1, figsize=(10, 8))
+
+ax1.plot(results.observed)
+ax2.plot(results.trend)
+ax3.plot(results.seasonal)
+ax4.plot(confirmed_cases.index, results.resid)
+ax4.axhline(0, linestyle='dashed', c='black')
+plt.show()
