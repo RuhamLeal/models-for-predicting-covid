@@ -31,3 +31,7 @@ brazil['newcases'] = list(map(
 	lambda x: 0 if (x==0) else brazil['confirmed'].iloc[x] - brazil['confirmed'].iloc[x-1],
 	np.arange(brazil.shape[0])
 ))
+
+""" Graph of new cases in Brazil """
+
+px.line(brazil, 'observationdate', 'newcases', title='New Cases in Brazil').show()
