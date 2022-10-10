@@ -70,3 +70,30 @@ def growth_rate(data, variable, initial_data=None, last_data=None):
 
 growth_rate(brazil, 'confirmed')
 
+""" Daily growth rate of covid in Brazil """
+
+def daily_growth_rate(data, variable, initial_data=None):
+	if initial_data == None:
+		initial_data = data.observationdate.loc[data[variable] > 0].min()
+	else:
+		initial_data = pd.to_datetime(initial_data)
+
+	last_data = data.observationdate.max()
+	points_time = (last_data - initial_data).days
+
+	rates = list(map(
+		lambda x: (data[variable].iloc[x] - data[variable].iloc[x-1]) / data[variable].iloc[x-1],
+		range(1, points_time + 1)
+	))
+
+	return np.array(rates)*100
+
+
+daily_rate = daily_growth_rate(brazil, 'confirmed')
+first_day = brazil.observationdate.loc[brazil.confirmed > 0].min()
+
+px.line(
+	x=pd.date_range(first_day, brazil.observationdate.max())[1:],
+	y=daily_rate, title='Growth rate of confirmed cases in brazil'
+).show()
+
