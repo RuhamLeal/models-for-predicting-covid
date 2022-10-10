@@ -41,7 +41,7 @@ In this project, I used a database that contained some information about covid-1
   -matplotlib
   -statsmodels
  
-#Contributing persons
+# Contributing persons
 
 [Ruham Leal](https://github.com/RuhamLeal)
     
