@@ -111,3 +111,24 @@ ax3.plot(results.seasonal)
 ax4.plot(confirmed_cases.index, results.resid)
 ax4.axhline(0, linestyle='dashed', c='black')
 plt.show()
+
+""" Modeling data with ARIMA #MDA """
+
+model = auto_arima(confirmed_cases)
+
+fig_mda = go.Figure(go.Scatter(
+    x=confirmed_cases.index, y=confirmed_cases, name='observed'
+))
+
+fig_mda.add_trace(go.Scatter(
+	x=confirmed_cases.index, y=model.predict_in_sample(), name='predicted'
+))
+
+fig_mda.add_trace(go.Scatter(
+	x=pd.date_range('2020-05-20', '2020-06-20'), 
+	y=model.predict(31), 
+	name='Forecast'
+))
+
+fig_mda.update_layout(title='Forecast of confirmed cases in Brazil in 2020-06-20')
+fig_mda.show()
