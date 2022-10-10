@@ -1,7 +1,15 @@
-(https://img.shields.io/badge/Python-3.10.7-brightgreen)
-(https://img.shields.io/badge/status-realized-green)
+![badge python version](https://img.shields.io/badge/Python-3.10.7-brightgreen)
+![badge status project](https://img.shields.io/badge/status-realized-green)
 
 # Graphs about covid 19 in brazil and forecasts
+
+# Índice 
+
+* [Description](#Description)
+* [Graphics preview](#Graphics-preview)
+* [Acess Project](#How-to-use)
+* [Used technologies](#Used-technologies)
+* [Contributing Persons](#Contributing-persons)
 
 # Description
 
@@ -19,5 +27,19 @@ In this project, I used a database that contained some information about covid-1
 
 1. Creates and runs your new virtual environment
 2. Install the packages
-    
+  <code>pip install -r requirements.txt</code>
+3. Run the python file
+
+# Used technologies
+
+1. Python 3.10.7
+2. Python libraries:
+  -Pandas
+  -plotly
+  -arima
+  -matplotlib
+  -statsmodels
+
+#Contributing persons
+    ![Ruham Leal](https://github.com/RuhamLeal)
     
