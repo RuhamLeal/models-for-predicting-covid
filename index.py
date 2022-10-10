@@ -35,3 +35,17 @@ brazil['newcases'] = list(map(
 """ Graph of new cases in Brazil """
 
 px.line(brazil, 'observationdate', 'newcases', title='New Cases in Brazil').show()
+
+""" Graph of deaths by covid in Brazil #GDCB """
+
+fig_gdcb = go.Figure().add_trace(
+	go.Scatter(
+		x=brazil.observationdate, y=brazil.deaths, name='Deaths', 
+		mode='lines+markers', line={'color': 'red'}
+	)
+)
+
+fig_gdcb.update_layout(title='Deaths by COVID-19 in Brazil')
+
+fig_gdcb.show()
+
