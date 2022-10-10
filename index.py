@@ -20,3 +20,7 @@ brazil = df.loc[
 	(df.countryregion == 'Brazil') &
 	(df.confirmed > 0)
 ]
+
+""" Graph of confirmed cases in Brazil """
+
+px.line(brazil, 'observationdate', 'confirmed', title='Confirmed Cases in Brazil').show()
