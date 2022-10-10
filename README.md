@@ -34,12 +34,14 @@ In this project, I used a database that contained some information about covid-1
 
 1. Python 3.10.7
 2. Python libraries:
+
   -Pandas
   -plotly
   -arima
   -matplotlib
   -statsmodels
-
+ 
 #Contributing persons
-    ![Ruham Leal](https://github.com/RuhamLeal)
+
+[Ruham Leal](https://github.com/RuhamLeal)
     
