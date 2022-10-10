@@ -49,3 +49,24 @@ fig_gdcb.update_layout(title='Deaths by COVID-19 in Brazil')
 
 fig_gdcb.show()
 
+""" Median growth rate of covid in Brazil """
+
+def growth_rate(data, variable, initial_data=None, last_data=None):
+	if initial_data == None:
+		initial_data = data.observationdate.loc[data[variable] > 0].min()
+	else:
+		initial_data = pd.to_datetime(initial_data)
+	if last_data == None:
+		last_data = data.observationdate.iloc[-1]
+	else:
+		last_data = pd.to_datetime(last_data)
+	
+	past = data.loc[data.observationdate == initial_data, variable].values[0]
+	present = data.loc[data.observationdate == last_data, variable].values[0]
+	points_time = (last_data - initial_data).days
+	rate = (present/past)**(1/points_time) - 1
+
+	return rate*100
+
+growth_rate(brazil, 'confirmed')
+
