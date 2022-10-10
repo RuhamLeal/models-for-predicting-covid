@@ -24,3 +24,10 @@ brazil = df.loc[
 """ Graph of confirmed cases in Brazil """
 
 px.line(brazil, 'observationdate', 'confirmed', title='Confirmed Cases in Brazil').show()
+
+"""  Creating a column of new covid cases """
+
+brazil['newcases'] = list(map(
+	lambda x: 0 if (x==0) else brazil['confirmed'].iloc[x] - brazil['confirmed'].iloc[x-1],
+	np.arange(brazil.shape[0])
+))
